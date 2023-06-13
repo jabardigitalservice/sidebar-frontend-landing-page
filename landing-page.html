@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+                fontFamily: {
+                    inter: ['Inter', 'sans-serif']
+                },
+            }
+          }
+        }
+      </script>
+      <style>
+        .header-nav li{
+            margin-right: 32px;
+            margin-bottom: 16px;
+        }
+      </style>
+</head>
+<body>
+  <header>
+    <nav class="bg-white header-nav">
+        <div class="flex justify-between items-center py-[22px] container mx-auto px-4">
+            <img src="./assets/image/logo-sidebar.svg" height="40"/>
+            
+            <button type="button" class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+           <!-- hamburger for mobile -->
+            <svg class="block h-6 w-6 hover:text-[#1976D2]" id="tooggle-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            
+            <!-- close menu for mobile -->
+            <svg class="hidden h-6 w-6" id="close-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <!-- menu for desktop -->
+          <div class="hidden lg:block">
+            <ul class="flex items-center font-medium text-[14px] font-inter">
+                <li>Dashboard OPD</li>
+                <li>Fitur Utama</li>
+                <li>Tutorial</li>
+                <li><div class="flex">Pusat Bantuan <img class="ml-[10px]" src="/assets/icon/question-mark-bullet-icon.svg" height="15" width="15"></div></li>
+                <li><button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button></li>
+            </ul>
+          </div>
+           
+        </div>  
+        <!-- menu for mobile -->
+        <div class="hidden container mx-auto" id="mobile-menu">
+            <div class="space-y-1 px-4 pb-3 pt-2">
+                <ul class="font-medium text-[14px] font-inter text-center">
+                    <li>Dashboard OPD</li>
+                    <li>Fitur Utama</li>
+                    <li>Tutorial</li>
+                    <li>Pusat Bantuan</li>
+                    <li><button class="bg-[#1976D2] w-full h-[38px] text-white rounded-lg font-semibold">Login</button></li>
+                </ul>
+            </div>
+          </div>  
+    </nav>
+    <script type="text/javascript">
+        const buttonToggle = document.getElementById("tooggle-menu")
+        buttonToggle.addEventListener("click",function(){
+            document.getElementById('tooggle-menu').style.display = 'none'
+            document.getElementById('close-menu').style.display = 'block'
+            document.getElementById('mobile-menu').style.display = 'block'
+        })
+        const buttonClose = document.getElementById('close-menu')
+        buttonClose.addEventListener('click',function(){
+            document.getElementById('close-menu').style.display = 'none'
+            document.getElementById('mobile-menu').style.display = 'none'
+            document.getElementById('tooggle-menu').style.display = 'block'
+        })
+    </script>
+  </header>
+</body>
+</html>
