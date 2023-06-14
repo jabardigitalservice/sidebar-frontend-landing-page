@@ -31,21 +31,21 @@
   <header>
     <nav class="bg-white header-nav">
         <div class="flex justify-between items-center py-[22px] container mx-auto">
-            <img src="./assets/image/logo-sidebar.svg" height="40"/>
+            <img src="./assets/logo/logo-sidebar.svg" height="40"/>
             
-            <button type="button" class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <!-- <button type="button" class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false"> -->
            <!-- hamburger for mobile -->
-            <svg class="block h-6 w-6 hover:text-[#1976D2]" id="tooggle-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <!-- <svg class="block h-6 w-6 hover:text-[#1976D2]" id="tooggle-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+            </svg> -->
             
             <!-- close menu for mobile -->
-            <svg class="hidden h-6 w-6" id="close-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <!-- <svg class="hidden h-6 w-6" id="close-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
-          </button>
+          </button> -->
           <!-- menu for desktop -->
-          <div class="hidden lg:block">
+          <!-- <div class="hidden lg:block"> -->
             <ul class="flex items-center font-medium text-[14px]">
                 <li>Dashboard OPD</li>
                 <li>Fitur Utama</li>
@@ -53,11 +53,11 @@
                 <li><div class="flex">Pusat Bantuan <img class="ml-[10px]" src="/assets/icon/question-mark-bullet-icon.svg" height="15" width="15"></div></li>
                 <li><button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button></li>
             </ul>
-          </div>
+          <!-- </div> -->
            
         </div>  
         <!-- menu for mobile -->
-        <div class="hidden container mx-auto" id="mobile-menu">
+        <!-- <div class="hidden container mx-auto" id="mobile-menu">
             <div class="space-y-1 px-4 pb-3 pt-2">
                 <ul class="font-medium text-[14px] font-inter text-center">
                     <li>Dashboard OPD</li>
@@ -67,9 +67,10 @@
                     <li><button class="bg-[#1976D2] w-full h-[38px] text-white rounded-lg font-semibold">Login</button></li>
                 </ul>
             </div>
-          </div>  
+          </div>   -->
     </nav>
-    <script type="text/javascript">
+    <!-- for handling toggle & show menu -->
+    <!-- <script type="text/javascript">
         const buttonToggle = document.getElementById("tooggle-menu")
         buttonToggle.addEventListener("click",function(){
             document.getElementById('tooggle-menu').style.display = 'none'
@@ -82,10 +83,45 @@
             document.getElementById('mobile-menu').style.display = 'none'
             document.getElementById('tooggle-menu').style.display = 'block'
         })
-    </script>
+    </script> -->
   </header>
+  <!-- section with form login -->
+  <section class="bg-[url('/assets/image/background-header.svg')] bg-cover h-[760px]">
+    <div class="grid grid-cols-2 place-items-center h-[760px] container mx-auto">
+      <div>
+        <p class="text-white text-[44px] font-bold uppercase mb-6">Sidebar</p>
+        <p class="text-white text-[16px] max-w-[461px] leading-6">Sistem Informasi Dokumen Elektronik Jawa Barat atau SIDEBAR merupakan Aplikasi E-Office yang hadir untuk memberikan kemudahan bagi seluruh ASN dalam memproses, menindaklanjuti, dan mengarsipkan Naskah Dinas Elektronik di lingkungan Pemerintahan Daerah Provinsi Jawa Barat secara digital, praktis, dan aman.
+            SIDEBAR “Dokumen Aman Dalam Genggaman”</p>
+        <p class="text-white mt-[40px] text-[14px] mb-3">Aplikasi SIDEBAR dapat diunduh di</p>
+        <div class="flex">
+          <img src="./assets/image/button-download-google-play.svg" alt="button-google-play" class="mr-3.5" height="44" width="141"/>
+          <img src="./assets/image/button-download-apple-ios.svg" alt="button-apple-ios" height="42" width="128"/>
+        </div>
+      </div>
+      <div class="w-[360px] bg-white pt-6 rounded-lg">
+        <div class="flex pl-6">
+          <img src="./assets/logo/logo-jabar.svg" alt="logo-jawa-barat" class="mr-4"/>
+          <img src="./assets/logo/logo-bse.svg" alt="logo-bse"/>
+        </div>
+         <form class="mt-9 px-5">
+          <input type="text" placeholder="Username" class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+          <div class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 mb-4 flex">
+            <input type="password" placeholder="Password" class="w-full h-[20px] mt-2 ml-[13px] text-[#999999] placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+            <img src="./assets/icon/eye-close.svg" alt="eye-close" height="14" width="14" class="mr-3"/>
+          </div>
+          <input type="text" placeholder="Captcha Kode" class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 mb-4 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+          <button class="h-[38px] bg-[#1976D2] rounded-lg w-full text-white text-[14px] font-semibold mb-5">Login</button>
+          <div class="w-full h-[15px] border-b border-gray-200 text-center mb-5">
+            <span class="px-4 mb-4 bg-white text-[14px] font-medium text-gray-500">atau</span>
+          </div>
+          <button class="h-[38px] border border-gray-300 rounded-lg w-full font-semibold mb-3 text-[14px]">Login dengan TRK</button>
+          <button class="h-[38px] border border-gray-300 rounded-lg w-full font-semibold mb-8 text-[14px]">Login dengan SSO</button>
+        </form>
+      </div>
+    </div>
+  </section>
   <footer class="container mx-auto flex justify-between items-center">
-    <img src="./assets/image/logo-sidebar-footer.svg" alt="logo-footer"  height="40" width="171"/>
+    <img src="./assets/logo/logo-sidebar-footer.svg" alt="logo-footer"  height="40" width="171"/>
     <p class="text-[12px]">Copyright © 2016 - 2023 Arsip Nasional Republik Indonesia. Developed by Dispusipda Jabar dan Diskominfo Jabar</p>
   </footer>
 </body>
