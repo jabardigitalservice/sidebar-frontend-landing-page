@@ -29,7 +29,7 @@
 </head>
 <body>
   <header>
-    <nav class="bg-white header-nav">
+    <nav class="bg-white header-nav fixed w-full">
         <div class="flex justify-between items-center py-[22px] container mx-auto">
             <img src="./assets/logo/logo-sidebar.svg" height="40"/>
             
@@ -47,9 +47,9 @@
           <!-- menu for desktop -->
           <!-- <div class="hidden lg:block"> -->
             <ul class="flex items-center font-medium text-[14px]">
-                <li>Dashboard OPD</li>
-                <li>Fitur Utama</li>
-                <li>Tutorial</li>
+                <li><a href="#">Dashboard OPD</a></li>
+                <li><a href="#fitur-utama">Fitur Utama</a></li>
+                <li><a href="#tutorial">Tutorial</a></li>
                 <li><div class="flex">Pusat Bantuan <img class="ml-[10px]" src="/assets/icon/question-mark-bullet-icon.svg" height="15" width="15"></div></li>
                 <li><button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button></li>
             </ul>
@@ -86,7 +86,7 @@
     </script> -->
   </header>
   <!-- section with form login -->
-  <section class="bg-[url('/assets/image/background-header.svg')] bg-cover h-[760px]">
+  <section id="dashboard-op" class="bg-[url('/assets/image/background-header.svg')] bg-cover h-[760px]">
     <div class="grid grid-cols-2 place-items-center h-[760px] container mx-auto">
       <div>
         <h1 class="text-white text-[44px] font-bold uppercase mb-6">Sidebar</h1>
@@ -121,7 +121,7 @@
     </div>
   </section>
   <!-- section fitur utama sidebar -->
-  <section class="bg-white mt-[100px] container mx-auto max-w-[1160px]">
+  <section id="fitur-utama" class="bg-white mt-[100px] container mx-auto max-w-[1160px]">
     <div class="flex flex-col items-center mb-20">
       <h1 class="text-[32px] font-bold mb-5">Fitur Utama <span class="text-[#1976D2]">SIDEBAR</span></h1>
       <p class="text-[16px] max-w-[750px] text-center text-gray-800 leading-6">Lebih mudah diterima, diteruskan, di disposisi, ditandatangani secara elektronik dan ditelusuri
@@ -178,7 +178,7 @@
     </div>
   </section>
   <!-- section tutorial -->
-  <section class="mt-[120px] container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
+  <section id="tutorial" class="mt-[120px] container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
     <h1 class="text-[32px] font-bold text-gray-900 mb-3 px-5">Tutorial</h1>
     <p class="text-gray-800 text-[16px] px-5 mb-10">Pilih video tutorial website atau mobile dibawah ini</p>
     <!-- button tutorial -->
