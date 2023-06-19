@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +7,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script type='text/javascript' src='https://tableau.jabarprov.go.id/javascripts/api/viz_v1.js'></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-                fontFamily: {
-                    inter: ['Inter', 'sans-serif']
-                },
-            }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ['Inter', 'sans-serif']
+            },
           }
         }
+      }
+    </script>
+    <script>
+      // scroll refresh to top
+      $(document).ready(function(){
+          $(this).scrollTop(0);
+      });
     </script>
     <style>
       .header-nav li{
         margin-right: 32px;
         margin-bottom: 16px;
       }
+      .header-nav a:hover,
+      .header-nav a:active {
+        color: #1976D2;
+      }
     </style>
 </head>
 <body>
   <header>
-    <nav class="bg-white header-nav fixed w-full">
+    <nav class="bg-white header-nav fixed w-full z-10">
         <div class="flex justify-between items-center py-[22px] container mx-auto">
             <img src="./assets/logo/logo-sidebar.svg" height="40"/>
             
@@ -47,12 +58,12 @@
           </button> -->
           <!-- menu for desktop -->
           <!-- <div class="hidden lg:block"> -->
-            <ul class="flex items-center font-medium text-[14px]">
-                <li><a href="#">Dashboard OPD</a></li>
-                <li><a href="#fitur-utama">Fitur Utama</a></li>
-                <li><a href="#tutorial">Tutorial</a></li>
-                <li><div class="flex">Pusat Bantuan <img class="ml-[10px]" src="/assets/icon/question-mark-bullet-icon.svg" height="15" width="15"></div></li>
-                <li><button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button></li>
+            <ul class="flex items-center font-medium text-[14px] pt-3">
+              <li><a href="#dashboard-opd">Dashboard OPD</a></li>
+              <li><a href="#fitur-utama">Fitur Utama</a></li>
+              <li><a href="#tutorial">Tutorial</a></li>
+              <li><a href="#pusat-bantuan">Pusat Bantuan <span class="ml-[5px] fa fa-question-circle h-[20px] w-[20px]"></span></a></li>
+              <li><button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button></li>
             </ul>
           <!-- </div> -->
            
@@ -87,7 +98,7 @@
     </script> -->
   </header>
   <!-- section with form login -->
-  <section id="dashboard-op" class="bg-[url('/assets/image/background-header.svg')] bg-cover h-[760px]">
+  <section class="bg-[url('/assets/image/background-header.svg')] bg-cover h-[760px]">
     <div class="grid grid-cols-2 place-items-center h-[760px] container mx-auto">
       <div>
         <h1 class="text-white text-[44px] font-bold uppercase mb-6">Sidebar</h1>
@@ -121,19 +132,20 @@
       </div>
     </div>
   </section>
-  <section class="w-full">
+  <!-- section dashboard OPD -->
+  <section id="dashboard-opd" class="w-full pt-[100px]">
     <div class='tableauPlaceholder container mx-auto'>
-      <object class='tableauViz' width='' height='1327' style='display:none;'>
+      <object class='tableauViz' width='1200' height='1327'>
         <param name='host_url' value='https%3A%2F%2Ftableau.jabarprov.go.id%2F' /> 
         <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
         <param name='name' value='DashboardSIKD-Eksekutif&#47;OPD' />
-        <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+        <param name='tabs' value='no' /><param name='toolbar' value='no' />
         <param name='showAppBanner' value='false' />
       </object>
     </div>
   </section>
   <!-- section fitur utama sidebar -->
-  <section id="fitur-utama" class="bg-white mt-[100px] container mx-auto max-w-[1160px]">
+  <section id="fitur-utama" class="bg-white pt-[100px] container mx-auto max-w-[1160px]">
     <div class="flex flex-col items-center mb-20">
       <h1 class="text-[32px] font-bold mb-5">Fitur Utama <span class="text-[#1976D2]">SIDEBAR</span></h1>
       <p class="text-[16px] max-w-[750px] text-center text-gray-800 leading-6">Lebih mudah diterima, diteruskan, di disposisi, ditandatangani secara elektronik dan ditelusuri
@@ -190,7 +202,7 @@
     </div>
   </section>
   <!-- section tutorial -->
-  <section id="tutorial" class="mt-[120px] container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
+  <section id="tutorial" class="pt-[120px] container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
     <h1 class="text-[32px] font-bold text-gray-900 mb-3 px-5">Tutorial</h1>
     <p class="text-gray-800 text-[16px] px-5 mb-10">Pilih video tutorial website atau mobile dibawah ini</p>
     <!-- button tutorial -->
@@ -204,7 +216,8 @@
     </div>
     <iframe height="626" src="https://www.youtube.com/embed/hmL2FwBjQoc" title="YouTube video player" class="mt-10 lg:w-full xl:w-[1160px] rounded-2xl pr-5"></iframe>
   </section>
-  <section class="mt-20 container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
+  <!-- section pusat bantuan -->
+  <section id="pusat-bantuan" class="pt-20 container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
     <div class="bg-[url('/assets/image/background-pusat-bantuan-landing-page.svg')] bg-no-repeat h-[238px] w-full flex items-center justify-between px-[60px] rounded-2xl">
       <div class="text-white">
         <h1 class="text-[28px] font-semibold mb-3">Hubungi kami untuk Membantu Anda</h1>
