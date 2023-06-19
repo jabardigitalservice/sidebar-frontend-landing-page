@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script type='text/javascript' src='https://tableau.jabarprov.go.id/javascripts/api/viz_v1.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+                fontFamily: {
+                    inter: ['Inter', 'sans-serif']
+                },
+            }
+          }
+        }
+    </script>
+    <style>
+      .header-nav li{
+        margin-right: 32px;
+        margin-bottom: 16px;
+      }
+    </style>
+</head>
+<body>
+  <header>
+    <nav class="bg-white header-nav fixed w-full">
+        <div class="flex justify-between items-center py-[22px] container mx-auto">
+            <img src="./assets/logo/logo-sidebar.svg" height="40"/>
+            
+          <!-- <button type="button" class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false"> -->
+           <!-- hamburger for mobile -->
+            <!-- <svg class="block h-6 w-6 hover:text-[#1976D2]" id="tooggle-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg> -->
+            
+            <!-- close menu for mobile -->
+            <!-- <svg class="hidden h-6 w-6" id="close-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button> -->
+          <!-- menu for desktop -->
+          <!-- <div class="hidden lg:block"> -->
+            <ul class="flex items-center font-medium text-[14px]">
+                <li><a href="#">Dashboard OPD</a></li>
+                <li><a href="#fitur-utama">Fitur Utama</a></li>
+                <li><a href="#tutorial">Tutorial</a></li>
+                <li><div class="flex">Pusat Bantuan <img class="ml-[10px]" src="/assets/icon/question-mark-bullet-icon.svg" height="15" width="15"></div></li>
+                <li><button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button></li>
+            </ul>
+          <!-- </div> -->
+           
+        </div>  
+        <!-- menu for mobile -->
+        <!-- <div class="hidden container mx-auto" id="mobile-menu">
+            <div class="space-y-1 px-4 pb-3 pt-2">
+                <ul class="font-medium text-[14px] font-inter text-center">
+                    <li>Dashboard OPD</li>
+                    <li>Fitur Utama</li>
+                    <li>Tutorial</li>
+                    <li>Pusat Bantuan</li>
+                    <li><button class="bg-[#1976D2] w-full h-[38px] text-white rounded-lg font-semibold">Login</button></li>
+                </ul>
+            </div>
+          </div>   -->
+    </nav>
+    <!-- for handling toggle & show menu -->
+    <!-- <script type="text/javascript">
+        const buttonToggle = document.getElementById("tooggle-menu")
+        buttonToggle.addEventListener("click",function(){
+            document.getElementById('tooggle-menu').style.display = 'none'
+            document.getElementById('close-menu').style.display = 'block'
+            document.getElementById('mobile-menu').style.display = 'block'
+        })
+        const buttonClose = document.getElementById('close-menu')
+        buttonClose.addEventListener('click',function(){
+            document.getElementById('close-menu').style.display = 'none'
+            document.getElementById('mobile-menu').style.display = 'none'
+            document.getElementById('tooggle-menu').style.display = 'block'
+        })
+    </script> -->
+  </header>
+  <!-- section with form login -->
+  <section id="dashboard-op" class="bg-[url('/assets/image/background-header.svg')] bg-cover h-[760px]">
+    <div class="grid grid-cols-2 place-items-center h-[760px] container mx-auto">
+      <div>
+        <h1 class="text-white text-[44px] font-bold uppercase mb-6">Sidebar</h1>
+        <p class="text-white text-[16px] max-w-[461px] leading-6">Sistem Informasi Dokumen Elektronik Jawa Barat atau SIDEBAR merupakan Aplikasi E-Office yang hadir untuk memberikan kemudahan bagi seluruh ASN dalam memproses, menindaklanjuti, dan mengarsipkan Naskah Dinas Elektronik di lingkungan Pemerintahan Daerah Provinsi Jawa Barat secara digital, praktis, dan aman.
+            SIDEBAR “Dokumen Aman Dalam Genggaman”</p>
+        <p class="text-white mt-[40px] text-[14px] mb-3">Aplikasi SIDEBAR dapat diunduh di</p>
+        <div class="flex">
+          <img src="./assets/image/button-download-google-play.svg" alt="button-google-play" class="mr-3.5" height="44" width="141"/>
+          <img src="./assets/image/button-download-apple-ios.svg" alt="button-apple-ios" height="42" width="128"/>
+        </div>
+      </div>
+      <div class="w-[360px] bg-white pt-6 rounded-lg">
+        <div class="flex pl-6">
+          <img src="./assets/logo/logo-jabar.svg" alt="logo-jawa-barat" class="mr-4"/>
+          <img src="./assets/logo/logo-bse.svg" alt="logo-bse"/>
+        </div>
+         <form class="mt-9 px-5">
+          <input type="text" placeholder="Username" class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+          <div class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 mb-4 flex">
+            <input type="password" placeholder="Password" class="w-full h-[20px] mt-2 ml-[13px] text-[#999999] placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+            <img src="./assets/icon/eye-close.svg" alt="eye-close" height="14" width="14" class="mr-3"/>
+          </div>
+          <input type="text" placeholder="Captcha Kode" class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 mb-4 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+          <button class="h-[38px] bg-[#1976D2] rounded-lg w-full text-white text-[14px] font-semibold mb-5">Login</button>
+          <div class="w-full h-[15px] border-b border-gray-200 text-center mb-5">
+            <span class="px-4 mb-4 bg-white text-[14px] font-medium text-gray-500">atau</span>
+          </div>
+          <button class="h-[38px] border border-gray-300 rounded-lg w-full font-semibold mb-3 text-[14px]">Login dengan TRK</button>
+          <button class="h-[38px] border border-gray-300 rounded-lg w-full font-semibold mb-8 text-[14px]">Login dengan SSO</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="w-full">
+    <div class='tableauPlaceholder container mx-auto'>
+      <object class='tableauViz' width='' height='1327' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Ftableau.jabarprov.go.id%2F' /> 
+        <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+        <param name='name' value='DashboardSIKD-Eksekutif&#47;OPD' />
+        <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+        <param name='showAppBanner' value='false' />
+      </object>
+    </div>
+  </section>
+  <!-- section fitur utama sidebar -->
+  <section id="fitur-utama" class="bg-white mt-[100px] container mx-auto max-w-[1160px]">
+    <div class="flex flex-col items-center mb-20">
+      <h1 class="text-[32px] font-bold mb-5">Fitur Utama <span class="text-[#1976D2]">SIDEBAR</span></h1>
+      <p class="text-[16px] max-w-[750px] text-center text-gray-800 leading-6">Lebih mudah diterima, diteruskan, di disposisi, ditandatangani secara elektronik dan ditelusuri
+          secara digital, praktis, dan aman <strong class="font-semibold">Kapan Saja dan Dimana Saja</strong>
+      </p>
+    </div>
+    <!-- Pembuatan Surat -->
+    <div class="flex justify-items-center lg:px-5 xl:px-0">
+      <img src="./assets/icon/pembuatan-surat-icon.svg" alt="pembuatan-surat-icon" height="204" width="472"/>
+      <div class="bg-[#F7F9F9] p-6 w-full ml-6 rounded-2xl">
+        <div class="w-1 h-[30px] bg-[#FFA600] rounded"/>
+          <div class="lg:w-[450px] xl:w-[580px] pl-5">
+            <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Pembuatan Surat</h1>
+            <p class="text-[16px] leading-6 text-gray-800">Fitur yang membantu mempercepat pembuatan konsep surat, melakukan review berjenjang, memberikan penomoran surat hingga proses penandatanganan surat secara Elektronik.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Distribusi Surat -->
+    <div class="flex justify-items-center lg:px-5 xl:px-0 mt-10">
+      <div class="bg-[#F7F9F9] p-6 w-full mr-6 rounded-2xl">
+        <div class="w-1 h-[30px] bg-red-500 rounded"/>
+          <div class="lg:w-[450px] xl:w-[580px] pl-5">
+            <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Distribusi Surat</h1>
+            <p class="text-[16px] leading-6 text-gray-800">Fitur yang membantu mempercepat pengiriman surat yang telah di tandatangani elektronik secara real time ke setiap Perangkat Daerah di Jawa Barat, kemudian memudahkan pengguna dalam melakukan pengecekan keaslian surat melalui fitur Scan QR Code.</p>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/icon/distribusi-surat-icon.svg" alt="distribusi-surat-icon" height="204" width="472"/>
+    </div>
+    <!-- Disposisi Surat -->
+    <div class="flex justify-items-center lg:px-5 xl:px-0 mt-10">
+      <img src="./assets/icon/disposisi-surat-icon.svg" alt="disposisi-surat-icon" height="204" width="472"/>
+      <div class="bg-[#F7F9F9] p-6 w-full ml-6 rounded-2xl">
+        <div class="w-1 h-[30px] bg-green-500 rounded"/>
+          <div class="lg:w-[450px] xl:w-[580px] pl-5">
+            <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Disposisi Surat</h1>
+            <p class="text-[16px] leading-6 text-gray-800">Fitur yang membantu memudahkan dalam melakukan pendisposisian surat secara langsung baik yang dikirim oleh Dinas lain maupun Internal Dinas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pengarsipan Surat -->
+    <div class="flex justify-items-center lg:px-5 xl:px-0 mt-10">
+      <div class="bg-[#F7F9F9] p-6 w-full mr-6 rounded-2xl">
+        <div class="w-1 h-[30px] bg-blue-600 rounded"/>
+          <div class="lg:w-[450px] xl:w-[580px] pl-5">
+            <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Pengarsipan Surat</h1>
+            <p class="text-[16px] leading-6 text-gray-800">Fitur yang mendukung proses penyelenggaraan kearsipan di lingkungan Provinsi Jawa Barat sehingga memudahkan dalam temu kembali arsip dan pemberkasan arsip digital secara cepat dan tepat.</p>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/icon/pengarsipan-surat-icon.svg" alt="pengarsipan-surat-icon" height="204" width="472"/>
+    </div>
+  </section>
+  <!-- section tutorial -->
+  <section id="tutorial" class="mt-[120px] container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
+    <h1 class="text-[32px] font-bold text-gray-900 mb-3 px-5">Tutorial</h1>
+    <p class="text-gray-800 text-[16px] px-5 mb-10">Pilih video tutorial website atau mobile dibawah ini</p>
+    <!-- button tutorial -->
+    <div class="flex bg-[#F7F9F9] w-full rounded-full h-[72px]">
+      <button class="text-[16px] w-1/2 font-semibold focus:w-[572px] focus:h-[72px] focus:text-[#1976D2] focus:bg-white focus:border focus:border-2 focus:border-[#1976D2] focus:drop-shadow-[0_0_3px_rgba(25,118,210,0.25)] focus:rounded-full">
+        <div class="flex justify-center">Tutorial Website <img src="./assets/icon/desktop-icon.svg" class="ml-2"></div>
+      </button>
+      <button class="text-[16px] w-1/2 font-semibold focus:w-[572px] focus:h-[72px] focus:text-[#1976D2] focus:bg-white focus:border focus:border-2 focus:border-[#1976D2] focus:drop-shadow-[0_0_3px_rgba(25,118,210,0.25)] focus:rounded-full">
+        <div class="flex justify-center">Tutorial Mobile <img src="./assets/icon/mobile-icon.svg" class="ml-2"></div>
+      </button>
+    </div>
+    <iframe height="626" src="https://www.youtube.com/embed/hmL2FwBjQoc" title="YouTube video player" class="mt-10 lg:w-full xl:w-[1160px] rounded-2xl pr-5"></iframe>
+  </section>
+  <section class="mt-20 container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
+    <div class="bg-[url('/assets/image/background-pusat-bantuan-landing-page.svg')] bg-no-repeat h-[238px] w-full flex items-center justify-between px-[60px] rounded-2xl">
+      <div class="text-white">
+        <h1 class="text-[28px] font-semibold mb-3">Hubungi kami untuk Membantu Anda</h1>
+        <p class="text-[16px] leading-6">Klik tombol Pusat Bantuan disamping ini untuk berkonsultasi dengan Tim SIDEBAR</p>
+      </div>
+      <button class="rounded-lg bg-[#FFD026] py-4 px-6 text-[16px] font-semibold lg:mr-[20px] xl:mr-[100px]">Pusat Bantuan</button>
+    </div>
+  </section>
+  <footer class="container mx-auto flex justify-between items-center mt-[60px] py-6">
+    <img src="./assets/logo/logo-sidebar-footer.svg" alt="logo-footer"  height="40" width="171"/>
+    <p class="text-[12px]">Copyright © 2016 - 2023 Arsip Nasional Republik Indonesia. Developed by Dispusipda Jabar dan Diskominfo Jabar</p>
+  </footer>
+</body>
+</html>
