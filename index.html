@@ -31,6 +31,22 @@
       .header-nav a:active {
         color: #1976D2;
       }
+
+      .button-tutorial{
+        font-size: 16px;
+        width: 50%; 
+        font-weight: 600;
+      }
+
+      .button-tutorial:focus{
+        width: 572px;
+        height: 72px;
+        color: #1976D2 ;
+        background-color: white;
+        border: solid 2px #1976D2;
+        box-shadow: 0px 0px 0px 3px rgba(25, 118, 210, 0.2);
+        border-radius: 52px;
+      }
     </style>
 </head>
 <body onload="checkOnReload()">
@@ -207,14 +223,14 @@
     <p class="text-gray-800 text-[16px] px-5 mb-10">Pilih video tutorial website atau mobile dibawah ini</p>
     <!-- button tutorial -->
     <div class="flex bg-[#F7F9F9] w-full rounded-full h-[72px]">
-      <button class="text-[16px] w-1/2 font-semibold focus:w-[572px] focus:h-[72px] focus:text-[#1976D2] focus:bg-white focus:border focus:border-2 focus:border-[#1976D2] focus:drop-shadow-[0_0_3px_rgba(25,118,210,0.25)] focus:rounded-full">
-        <div class="flex justify-center">Tutorial Website <img src="./assets/icon/desktop-icon.svg" class="ml-2"></div>
+      <button class="button-tutorial">
+        <div class="flex justify-center items-center">Tutorial Website <i class="fa-solid fa-laptop ml-2"></i></div>
       </button>
-      <button class="text-[16px] w-1/2 font-semibold focus:w-[572px] focus:h-[72px] focus:text-[#1976D2] focus:bg-white focus:border focus:border-2 focus:border-[#1976D2] focus:drop-shadow-[0_0_3px_rgba(25,118,210,0.25)] focus:rounded-full">
-        <div class="flex justify-center">Tutorial Mobile <img src="./assets/icon/mobile-icon.svg" class="ml-2"></div>
+      <button class="button-tutorial">
+        <div class="flex justify-center items-center fa-sm">Tutorial Mobile <i class="fa-solid fa-mobile-screen ml-3 fa-lg"></i></div>
       </button>
     </div>
-    <iframe height="626" src="https://www.youtube.com/embed/hmL2FwBjQoc" title="YouTube video player" class="mt-10 lg:w-full xl:w-[1160px] rounded-2xl pr-5"></iframe>
+    <iframe height="626" width="100%" src="https://www.youtube.com/embed/hmL2FwBjQoc" class="rounded-2xl mt-10" title="YouTube video player"></iframe>
   </section>
   <!-- section pusat bantuan -->
   <section id="pusat-bantuan" class="pt-20 container mx-auto max-w-[1160px] lg:px-5 xl:px-0 mb-[60px]">
