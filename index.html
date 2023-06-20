@@ -22,12 +22,6 @@
         }
       }
     </script>
-    <script>
-      // scroll refresh to top
-      $(document).ready(function(){
-          $(this).scrollTop(0);
-      });
-    </script>
     <style>
       .header-nav li{
         margin-right: 32px;
@@ -39,7 +33,7 @@
       }
     </style>
 </head>
-<body>
+<body onload="checkOnReload()">
   <header>
     <nav class="bg-white header-nav fixed w-full z-10">
         <div class="flex justify-between items-center py-[22px] container mx-auto">
@@ -137,19 +131,6 @@
         </div>
       </div>
     </div>
-    <script>
-      // show & hide password
-      const togglePassword = document.querySelector('#togglePassword');
-   
-      const password = document.querySelector('#id_password');
-      togglePassword.addEventListener('click', function (e) {
-        // toggle the type attribute
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-        // toggle the eye slash icon
-        this.classList.toggle('fa-eye-slash');
-      });
-    </script>
   </section>
   <!-- section dashboard OPD -->
   <section id="dashboard-opd" class="w-full pt-[100px]">
@@ -249,5 +230,25 @@
     <img src="./assets/logo/logo-sidebar-footer.svg" alt="logo-footer"  height="40" width="171"/>
     <p class="text-[12px]">Copyright © 2016 - 2023 Arsip Nasional Republik Indonesia. Developed by Dispusipda Jabar dan Diskominfo Jabar</p>
   </footer>
+  <script>
+      // scroll refresh to top
+     function checkOnReload(){
+      if(document.location.hash!==''){
+        document.location.href='/'
+      }
+     }
+
+    // show & hide password
+    const togglePassword = document.querySelector('#togglePassword');
+   
+    const password = document.querySelector('#id_password');
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 </body>
 </html>
