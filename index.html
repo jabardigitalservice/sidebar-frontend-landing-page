@@ -275,8 +275,10 @@
         document.location.href = '/'
       }
     }
+  </script>
 
-    // for handling toggle & show menu
+  <script>
+  // for handling toggle & show menu
     const buttonToggle = document.getElementById("tooggle-menu")
     buttonToggle.addEventListener("click", function () {
       document.getElementById('tooggle-menu').style.display = 'none'
@@ -289,10 +291,11 @@
       document.getElementById('mobile-menu').style.display = 'none'
       document.getElementById('tooggle-menu').style.display = 'block'
     })
-
-    // show & hide password
+  </script>
+   
+  <script>
+  // show & hide password
     const togglePassword = document.querySelector('#togglePassword');
-
     const password = document.querySelector('#id_password');
     togglePassword.addEventListener('click', function (e) {
       // toggle the type attribute
@@ -301,8 +304,10 @@
       // toggle the eye slash icon
       this.classList.toggle('fa-eye-slash');
     });
-
-    // button tutorial
+  </script>
+  
+  <script>
+  // button tutorial
     function changeTutorialUrl(type='website'){
       let tutorialUrl = document.getElementById('video-tutorial')
       if(type==='website'){
