@@ -49,6 +49,13 @@
       box-shadow: 0px 0px 0px 3px rgba(25, 118, 210, 0.2);
       border-radius: 52px;
     }
+
+    .text-error{
+      color:red;
+      font-size:12px;
+      margin-left:5px;
+      margin-top:4px;
+    }
   </style>
 </head>
 
@@ -130,17 +137,20 @@
           <img src="./assets/logo/logo-bse.svg" alt="logo-bse" />
         </div>
         <form class="mt-9 px-5">
-          <input type="text" placeholder="Username"
-            class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
-          <div class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 mb-4 flex items-center">
-            <input type="password" id="id_password" placeholder="Password"
+          <input type="text"  id="username" placeholder="Username"
+            class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] mt-4 focus:outline-none" />
+            <p id="error-username" class="text-error"></p>
+            <div class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 flex items-center" id="password-border-error">
+            <input type="password" id="password" placeholder="Password"
               class="w-full h-[20px] ml-[13px] text-[#999999] placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
             <i class="fa-solid fa-eye mr-3 text-[#999999] fa-sm cursor-pointer" id="togglePassword"></i>
           </div>
-          <input type="text" placeholder="Captcha Kode"
-            class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 mb-4 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+          <p id="error-password" class="text-error"></p>
+          <input type="text" id="captcha-code" placeholder="Captcha Kode"
+            class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+            <p id="error-captcha-code" class="text-error"></p>
           <button
-            class="h-[38px] bg-[#1976D2] rounded-lg w-full text-white text-[14px] font-semibold mb-5">Login</button>
+            class="h-[38px] bg-[#1976D2] rounded-lg w-full text-white text-[14px] font-semibold mb-5 mt-4" type="button" onclick="formSubmitHandle()">Login</button>
         </form>
         <div class="px-5">
           <div class="w-full h-[15px] border-b border-gray-200 text-center mb-5">
@@ -319,7 +329,7 @@
   <script>
   // show & hide password
     const togglePassword = document.querySelector('#togglePassword');
-    const password = document.querySelector('#id_password');
+    const password = document.querySelector('#password');
     togglePassword.addEventListener('click', function (e) {
       // toggle the type attribute
       const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -340,6 +350,54 @@
       }
     }
   </script>
+
+<script>
+  function errorValidation(typeForm){
+    const errorUsername = document.getElementById(`error-${typeForm}`).innerHTML = ""
+    document.getElementById(`error-${typeForm}`).innerHTML = `${typeForm} wajib diisi`
+    document.getElementById(`${typeForm}`).style.border = '1px solid red'
+    document.getElementById(`${typeForm}`).style.borderRadius = '8px'
+
+    if(typeForm==='password'){
+      document.getElementById('password-border-error').style.border = '1px solid red'
+      document.getElementById(`${typeForm}`).style.border = ''
+    }
+
+    if(typeForm==='captcha-code'){
+      document.getElementById(`error-${typeForm}`).innerHTML = 'captcha kode wajib diisi'
+    }
+  }
+  function validationFormHandle(){
+    const username = document.getElementById('username').value 
+    const password = document.getElementById('password').value  
+    const captchaCode = document.getElementById('captcha-code').value 
+    let isValid = true
+    if(username===''){
+     errorValidation('username')
+     isValid = false
+    }
+
+    if(password===''){
+      errorValidation('password')
+      isValid = false
+    }
+
+    if(captchaCode===''){
+      errorValidation('captcha-code')
+      isValid = false
+    }
+  
+    return isValid
+    
+  }
+
+  function formSubmitHandle(){
+      if(validationFormHandle()){
+        document.getElementById('form-login').submit()
+      }
+  }
+
+</script>
 </body>
 
 </html>
