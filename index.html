@@ -1,0 +1,403 @@
+<!doctype html>
+<html class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script type='text/javascript' src='https://tableau.jabarprov.go.id/javascripts/api/viz_v1.js'></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif']
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    .header-nav li {
+      margin-right: 32px;
+      margin-bottom: 16px;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:active {
+      color: #1976D2;
+    }
+
+    .button-tutorial {
+      font-size: 16px;
+      width: 50%;
+      font-weight: 600;
+    }
+
+    .button-tutorial:focus {
+      width: 572px;
+      height: 72px;
+      color: #1976D2;
+      background-color: white;
+      border: solid 2px #1976D2;
+      box-shadow: 0px 0px 0px 3px rgba(25, 118, 210, 0.2);
+      border-radius: 52px;
+    }
+
+    .text-error{
+      color:red;
+      font-size:12px;
+      margin-left:5px;
+      margin-top:4px;
+    }
+  </style>
+</head>
+
+<body onload="checkOnReload()">
+  <header>
+    <nav class="bg-white header-nav lg:fixed w-full px-5 sm:px-0 lg:z-10">
+      <div class="flex justify-between items-center py-[22px] container mx-auto lg:px-5 xl:px-0">
+        <img src="./assets/logo/logo-sidebar.svg" height="40" />
+
+        <button type="button"
+          class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          aria-controls="mobile-menu" aria-expanded="false">
+          <!-- hamburger for mobile -->
+          <svg class="block h-6 w-6 hover:text-[#1976D2]" id="tooggle-menu" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+
+          <!-- close menu for mobile -->
+          <svg class="hidden h-6 w-6" id="close-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <!-- menu for desktop -->
+        <div class="hidden lg:block">
+          <ul class="flex items-center font-medium text-[14px] pt-3">
+            <li><a href="#dashboard-opd">Dashboard OPD</a></li>
+            <li><a href="#fitur-utama">Fitur Utama</a></li>
+            <li><a href="#tutorial">Tutorial</a></li>
+            <li><a href="#pusat-bantuan">Pusat Bantuan <span class="ml-[5px] fa fa-question-circle h-[20px] w-[20px]"></span></a></li>
+            <li>
+              <a href="/">
+                <button class="bg-[#1976D2] w-[70px] h-[38px] text-white rounded-lg font-semibold">Login</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- menu for mobile -->
+      <div class="hidden container mx-auto" id="mobile-menu">
+        <div class="space-y-1 px-4 pb-3 pt-2">
+          <ul class="font-medium text-[14px] font-inter text-center">
+            <li><a href="#dashboard-opd" onclick="closeButtonHandle()">Dashboard OPD</a></li>
+            <li><a href="#fitur-utama" onclick="closeButtonHandle()">Fitur Utama</a></li>
+            <li><a href="#tutorial" onclick="closeButtonHandle()">Tutorial</a></li>
+            <li><a href="#pusat-bantuan" onclick="closeButtonHandle()">Pusat Bantuan <span class="ml-[5px] fa fa-question-circle h-[20px] w-[20px]"></span></a></li>
+            <li>
+              <a href="/" onclick="closeButtonHandle()">
+                <button class="bg-[#1976D2] w-full h-[38px] text-white rounded-lg font-semibold">Login</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <!-- section with form login -->
+  <section class="bg-[url('/assets/image/background-header.svg')] bg-cover lg:h-[760px] pt-7 md:pt-8 px-5 sm:px-7 md:px-0 pb-7 lg:pb-0">
+    <div class="md:grid md:gap-x-7 lg:gap-x-0 md:grid-cols-2 md:place-items-center h-fit lg:h-[760px] container mx-auto sm:px-7">
+      <div>
+        <h1 class="text-white text-[44px] font-bold uppercase mb-6">Sidebar</h1>
+        <p class="text-white text-[16px] md:max-w-[461px] leading-6">Sistem Informasi Dokumen Elektronik Jawa Barat atau
+          SIDEBAR merupakan Aplikasi E-Office yang hadir untuk memberikan kemudahan bagi seluruh ASN dalam memproses,
+          menindaklanjuti, dan mengarsipkan Naskah Dinas Elektronik di lingkungan Pemerintahan Daerah Provinsi Jawa
+          Barat secara digital, praktis, dan aman.
+          SIDEBAR “Dokumen Aman Dalam Genggaman”</p>
+        <p class="text-white mt-[40px] text-[14px] mb-3">Aplikasi SIDEBAR dapat diunduh di</p>
+        <div class="flex w-full">
+          <img src="./assets/image/button-download-google-play.svg" alt="button-google-play" class="w-full sm:mr-3.5" height="44"
+            width="141" />
+          <img src="./assets/image/button-download-apple-ios.svg" alt="button-apple-ios" height="42" width="128" class="w-full" />
+        </div>
+      </div>
+      <div class="w-full md:w-[360px] mt-7 md:mt-0 lg:mt-[71px] bg-white pt-6 rounded-lg">
+        <div class="flex pl-6">
+          <img src="./assets/logo/logo-jabar.svg" alt="logo-jawa-barat" class="mr-4" />
+          <img src="./assets/logo/logo-bse.svg" alt="logo-bse" />
+        </div>
+        <form class="mt-9 px-5">
+          <input type="text"  id="username" placeholder="Username"
+            class="border border-[#D2D6DE] rounded-lg h-[38px] w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] mt-4 focus:outline-none" />
+            <p id="error-username" class="text-error"></p>
+            <div class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 flex items-center" id="password-border-error">
+            <input type="password" id="password" placeholder="Password"
+              class="w-full h-[20px] ml-[13px] text-[#999999] placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+            <i class="fa-solid fa-eye mr-3 text-[#999999] fa-sm cursor-pointer" id="togglePassword"></i>
+          </div>
+          <p id="error-password" class="text-error"></p>
+          <input type="text" id="captcha-code" placeholder="Captcha Kode"
+            class="border border-[#D2D6DE] rounded-lg h-[38px] mt-4 w-full text-[#999999] px-[13px] py-2 placeholder:text-[#999999] placeholder:text-[14px] text-[14px] focus:outline-none" />
+            <p id="error-captcha-code" class="text-error"></p>
+          <button
+            class="h-[38px] bg-[#1976D2] rounded-lg w-full text-white text-[14px] font-semibold mb-5 mt-4" type="button" onclick="formSubmitHandle()">Login</button>
+        </form>
+        <div class="px-5">
+          <div class="w-full h-[15px] border-b border-gray-200 text-center mb-5">
+            <span class="px-4 mb-4 bg-white text-[14px] font-medium text-gray-500">atau</span>
+          </div>
+          <div class="px-5">
+            <a href="#">
+              <button class="h-[38px] border border-gray-300 rounded-lg w-full font-semibold mb-3 text-[14px]">Login dengan TRK</button>
+            </a>
+            <a href="#">
+              <button class="h-[38px] border border-gray-300 rounded-lg w-full font-semibold mb-8 text-[14px]" id="login-sso">Login dengan SSO</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- section dashboard OPD -->
+  <section id="dashboard-opd" class="hidden md:block w-full pt-[100px]">
+    <div class='tableauPlaceholder container mx-auto'>
+      <object class='tableauViz' width='100%' height='1327'>
+        <param name='host_url' value='https%3A%2F%2Ftableau.jabarprov.go.id%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='DashboardSIKD-Eksekutif&#47;OPD' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='no' />
+        <param name='showAppBanner' value='false' />
+      </object>
+    </div>
+  </section>
+  <!-- section fitur utama sidebar -->
+  <section id="fitur-utama" class="bg-white pt-[100px] container mx-auto max-w-[1160px] px-7 lg:px-0">
+    <div class="flex flex-col items-center mb-20">
+      <h1 class="text-[32px] font-bold mb-5">Fitur Utama <span class="text-[#1976D2]">SIDEBAR</span></h1>
+      <p class="text-[16px] max-w-[750px] text-center text-gray-800 leading-6">Lebih mudah diterima, diteruskan, di
+        disposisi, ditandatangani secara elektronik dan ditelusuri
+        secara digital, praktis, dan aman <strong class="font-semibold">Kapan Saja dan Dimana Saja</strong>
+      </p>
+    </div>
+    <!-- Pembuatan Surat -->
+    <div class="lg:flex lg:justify-items-center lg:px-5 xl:px-0 w-full">
+      <img src="./assets/icon/pembuatan-surat-icon.svg" class="w-full lg:w-[472px] mb-3 lg:mb-0" alt="pembuatan-surat-icon" height="204" width="472" />
+      <div class="bg-[#F7F9F9] p-6 w-full lg:ml-6 rounded-2xl">
+        <div class="flex flex-row-reverse">
+            <div>
+              <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Pembuatan Surat</h1>
+              <p class="text-[16px] leading-6 text-gray-800">Fitur yang membantu mempercepat pembuatan konsep surat,
+                melakukan review berjenjang, memberikan penomoran surat hingga proses penandatanganan surat secara
+                Elektronik.</p>
+            </div>
+            <div class="flex-shrink-0 w-1 h-[30px] bg-[#FFA600] rounded mr-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Distribusi Surat -->
+    <div class="lg:flex lg:flex-row-reverse lg:justify-items-center lg:px-5 lg:mt-10 xl:px-0 w-full mt-7">
+      <img src="./assets/icon/distribusi-surat-icon.svg" alt="distribusi-surat-icon" class="w-full lg:w-[472px] mb-3 lg:mb-0" height="204" width="472" />
+      <div class="bg-[#F7F9F9] p-6 w-full lg:mr-6 rounded-2xl">
+        <div class="flex flex-row-reverse">
+            <div>
+              <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Distribusi Surat</h1>
+              <p class="text-[16px] leading-6 text-gray-800">Fitur yang membantu mempercepat pembuatan konsep surat,
+                melakukan review berjenjang, memberikan penomoran surat hingga proses penandatanganan surat secara
+                Elektronik.</p>
+            </div>
+            <div class="flex-shrink-0 w-1 h-[30px] bg-red-500 rounded mr-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Disposisi Surat -->
+    <div class="lg:flex lg:justify-items-center lg:px-5 xl:px-0 w-full mt-7 lg:mt-10">
+      <img src="./assets/icon/disposisi-surat-icon.svg" alt="disposisi-surat-icon" class="w-full lg:w-[472px] mb-3 lg:mb-0" height="204" width="472" />
+      <div class="bg-[#F7F9F9] p-6 w-full lg:ml-6 rounded-2xl">
+        <div class="flex flex-row-reverse">
+            <div>
+              <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Disposisi Surat</h1>
+              <p class="text-[16px] leading-6 text-gray-800">Fitur yang membantu memudahkan dalam melakukan pendisposisian
+                surat secara langsung baik yang dikirim oleh Dinas lain maupun Internal Dinas.</p>
+            </div>
+            <div class="flex-shrink-0 w-1 h-[30px] bg-green-500 rounded mr-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pengarsipan Surat -->
+    <div class="lg:flex lg:flex-row-reverse lg:justify-items-center lg:px-5 xl:px-0 w-full mt-7 lg:mt-10">
+      <img src="./assets/icon/pengarsipan-surat-icon.svg" alt="pengarsipan-surat-icon" class="w-full lg:w-[472px] mb-3 lg:mb-0" height="204" width="472" />
+      <div class="bg-[#F7F9F9] p-6 w-full lg:mr-6 rounded-2xl">
+        <div class="flex flex-row-reverse">
+            <div>
+              <h1 class="mb-3 text-[20px] font-semibold text-gray-900">Pengarsipan Surat</h1>
+              <p class="text-[16px] leading-6 text-gray-800">Fitur yang mendukung proses penyelenggaraan kearsipan di
+                lingkungan Provinsi Jawa Barat sehingga memudahkan dalam temu kembali arsip dan pemberkasan arsip digital
+                secara cepat dan tepat.</p>
+            </div>
+            <div class="flex-shrink-0 w-1 h-[30px] bg-blue-600 rounded mr-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- section tutorial -->
+  <section id="tutorial" class="pt-[120px] container mx-auto max-w-[1160px] lg:px-5 xl:px-0">
+    <h1 class="text-[32px] font-bold text-gray-900 mb-3 px-5">Tutorial</h1>
+    <p class="text-gray-800 text-[16px] px-5 mb-10">Pilih video tutorial website atau mobile dibawah ini</p>
+    <!-- button tutorial -->
+    <div class="flex bg-[#F7F9F9] rounded-full h-[72px] mx-2">
+      <button class="button-tutorial" onclick="changeTutorialUrl('website')">
+        <div class="flex justify-center items-center">Tutorial Website <i class="fa-solid fa-laptop ml-2"></i></div>
+      </button>
+      <button class="button-tutorial" onclick="changeTutorialUrl('mobile')">
+        <div class="flex justify-center items-center fa-sm">Tutorial Mobile <i
+            class="fa-solid fa-mobile-screen ml-3 fa-lg"></i></div>
+      </button>
+    </div>
+    <div class="w-full px-5">
+      <iframe height="626" width="100%"  id="video-tutorial" src="https://www.youtube.com/embed/hmL2FwBjQoc" class="rounded-2xl mt-10" title="YouTube video player"></iframe>
+    </div>
+  </section>
+  <!-- section pusat bantuan -->
+  <section id="pusat-bantuan" class="pt-20 container mx-auto max-w-[1160px] lg:px-5 xl:px-0 mb-[60px]">
+    <div class="bg-[url('/assets/image/background-pusat-bantuan-landing-page.svg')] bg-cover bg-no-repeat h-fit lg:h-[238px] w-full lg:flex lg:items-center lg:justify-between px-6 py-5 lg:px-[60px] rounded-2xl">
+      <div class="text-white">
+        <h1 class="text-[24px] lg:text-[28px] font-semibold mb-3">Hubungi kami untuk Membantu Anda</h1>
+        <p class="text-[16px] leading-6">Klik tombol Pusat Bantuan disamping ini untuk berkonsultasi dengan Tim SIDEBAR</p>
+      </div>
+      <button class="w-full lg:w-[161px] mt-3 lg:mt-0 rounded-lg bg-[#FFD026] py-4 px-6 text-[16px] font-semibold lg:mr-[20px] xl:mr-[100px]">Pusat
+        Bantuan
+      </button>
+    </div>
+  </section>
+  <footer class="container mx-auto lg:flex lg:justify-between lg:items-center py-6 px-4 lg:px-5 xl:px-0">
+    <img src="./assets/logo/logo-sidebar-footer.png" alt="logo-footer" height="40" width="171" />
+    <p class="text-[12px] mt-3 lg:mt-0">Copyright © 2016 - 2023 Arsip Nasional Republik Indonesia. Developed by Dispusipda Jabar dan
+      Diskominfo Jabar</p>
+  </footer>
+  <script>
+    // scroll refresh to top
+    function checkOnReload() {
+      if (document.location.hash !== '') {
+        document.location.href = '/'
+      }
+    }
+
+    function closeButtonHandle(){
+      document.getElementById('close-menu').style.display = 'none'
+      document.getElementById('mobile-menu').style.display = 'none'
+      document.getElementById('tooggle-menu').style.display = 'block'
+    }
+    
+  </script>
+
+  <script>
+  // for handling toggle & show menu
+  function closeButtonHandle(){
+      document.getElementById('close-menu').style.display = 'none'
+      document.getElementById('mobile-menu').style.display = 'none'
+      document.getElementById('tooggle-menu').style.display = 'block'
+    }
+    const buttonToggle = document.getElementById("tooggle-menu")
+    buttonToggle.addEventListener("click", function () {
+      document.getElementById('tooggle-menu').style.display = 'none'
+      document.getElementById('close-menu').style.display = 'block'
+      document.getElementById('mobile-menu').style.display = 'block'
+    })
+    const buttonClose = document.getElementById('close-menu')
+    buttonClose.addEventListener('click', closeButtonHandle)
+    window.onresize = function(event) {
+      closeButtonHandle()
+    };
+  </script>
+   
+  <script>
+  // show & hide password
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+  
+  <script>
+  // button tutorial
+    function changeTutorialUrl(type='website'){
+      let tutorialUrl = document.getElementById('video-tutorial')
+      if(type==='website'){
+        tutorialUrl.src = "https://www.youtube.com/embed/hmL2FwBjQoc"
+      }else{
+        tutorialUrl.src = "https://www.youtube.com/embed/nRrbOVLQqWc"
+      }
+    }
+  </script>
+
+<script>
+  function errorValidation(typeForm){
+    const errorUsername = document.getElementById(`error-${typeForm}`).innerHTML = ""
+    document.getElementById(`error-${typeForm}`).innerHTML = `${typeForm} wajib diisi`
+    document.getElementById(`${typeForm}`).style.border = '1px solid red'
+    document.getElementById(`${typeForm}`).style.borderRadius = '8px'
+
+    if(typeForm==='password'){
+      document.getElementById('password-border-error').style.border = '1px solid red'
+      document.getElementById(`${typeForm}`).style.border = ''
+    }
+
+    if(typeForm==='captcha-code'){
+      document.getElementById(`error-${typeForm}`).innerHTML = 'captcha kode wajib diisi'
+    }
+  }
+  function validationFormHandle(){
+    const username = document.getElementById('username').value 
+    const password = document.getElementById('password').value  
+    const captchaCode = document.getElementById('captcha-code').value 
+    let isValid = true
+    if(username===''){
+     errorValidation('username')
+     isValid = false
+    }
+
+    if(password===''){
+      errorValidation('password')
+      isValid = false
+    }
+
+    if(captchaCode===''){
+      errorValidation('captcha-code')
+      isValid = false
+    }
+  
+    return isValid
+    
+  }
+
+  function formSubmitHandle(){
+      if(validationFormHandle()){
+        document.getElementById('form-login').submit()
+      }
+  }
+
+</script>
+</body>
+
+</html>
